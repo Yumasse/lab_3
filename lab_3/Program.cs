@@ -6,16 +6,16 @@ namespace lab_3
     {
         static void Main()
         {
-            var мережа = new Мережа();
-            var сервер = new Сервер("192.168.1.1", 1000, "Windows Server");
-            var робочаСтанція = new РобочаСтанція("192.168.1.2", 500, "Windows 10");
-            var маршрутизатор = new Маршрутизатор("192.168.1.3", 800, "RouterOS");
+            var network = new Network();
+            var server = new Server("192.168.1.1", 1000, "Windows Server");
+            var workstation = new Workstation("192.168.1.2", 500, "Windows 10");
+            var router = new Router("192.168.1.3", 800, "RouterOS");
 
-            мережа.ДодатиКомпютер(сервер);
-            мережа.ДодатиКомпютер(робочаСтанція);
-            мережа.ДодатиКомпютер(маршрутизатор);
-    
-        мережа.ВзаємодіяКомпютерів();
+            network.AddComputer(server);
+            network.AddComputer(workstation);
+            network.AddComputer(router);
+
+            network.Interaction();
         }
     }
 }

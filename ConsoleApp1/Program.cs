@@ -1,4 +1,4 @@
-﻿using ConsoleApp1;
+﻿using Task_1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +11,21 @@ namespace Task_1
     {
         static void Main()
         {
-            var екосистема = new Екосистема();
-            var кролик = new Тварина(50, 1, 10, 5, true);
-            var ведмідь = new Тварина(100, 3, 20, 2, true);
-            var трава = new Рослина(10, 1, 5, 2);
-            var бактерія = new Мікроорганізм(5, 0, 1, true);
+            Ecosystem ecosystem = new Ecosystem();
 
-            екосистема.ДодатиОрганізм(кролик);
-            екосистема.ДодатиОрганізм(ведмідь);
-            екосистема.ДодатиОрганізм(трава);
-            екосистема.ДодатиОрганізм(бактерія);
+            ecosystem.AddOrganism(new Animal(100, 5, 10, 6));
+            ecosystem.AddOrganism(new Plant(50, 2, 3, 4));
+            ecosystem.AddOrganism(new Microorganism(20, 1, 1, 5));
 
-            екосистема.ВзаємодіяОрганізмів();
+            Console.WriteLine($"{ecosystem.Organism.Count} inital quantity of organism");
+
+            for (int i= 0; i< 20; i++)
+            {
+                ecosystem.SimulateDay();
+                Console.WriteLine($"{ ecosystem.Organism.Count} organisms alive after {i+1} days");
+            }
+
+            Console.WriteLine("Simulation finished!");
         }
     }
 }

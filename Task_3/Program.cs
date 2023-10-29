@@ -1,18 +1,20 @@
-﻿namespace Task_3
+﻿using System.Diagnostics;
+
+namespace Task_3
 {
     class Program
     {
         static void Main()
         {
-            var дорога = new Дорога(500, 4, 2);
-            var автомобіль1 = new ТранспортнийЗасіб("Автомобіль", 60, 4);
-            var автомобіль2 = new ТранспортнийЗасіб("Автомобіль", 70, 3);
-            var вантажівка = new ТранспортнийЗасіб("Вантажівка", 40, 8);
+            var road = new Road(500, 4, 2);
+            var automobile = new Vehicle("Автомобіль", 60, 4);
+            var bus = new Vehicle("Автобус", 50, 6);
+            var truck = new Vehicle("Вантажівка", 40, 8);
 
-            var транспортніЗасоби = new List<ТранспортнийЗасіб> { автомобіль1, автомобіль2, вантажівка };
+            var vehicle = new List<Vehicle> { automobile, bus, truck };
 
-            var симуляція = new СимуляціяРуху();
-            симуляція.СимулюватиРух(дорога, транспортніЗасоби);
+            var simulation = new Trafficsimulation();
+            simulation.Trafficsimulat(road, vehicle);
         }
     }
 }
