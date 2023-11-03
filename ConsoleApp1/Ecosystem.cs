@@ -42,11 +42,10 @@ namespace Task_1
                     if (prey != null) predator.Hunt(prey);
                 }
 
-                Organism.AddRange(babies);
-                Organism.RemoveAll(o => o.Energy <= 0);
-
-                
             }
+
+            Organism.AddRange(babies);
+            Organism.RemoveAll(o => o.Energy <= 0);
         }
     }
 }
